@@ -44,10 +44,14 @@ Use the copy function below to do the following:
     1. receive an array as a parameter - you will pass in originalFlavors as an argument when the function is invoked.
     2. Return a copy of the received array  
 */
+null, originalFlavors
 
-function copy(/*your code here*/){
+function copy(arr) {
     /*your code here*/
-}    
+    return arr;
+}
+
+// console.log(copy(originalFlavors));
 
 
 
@@ -64,9 +68,18 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-   /*your code here*/
+function is31Flavors(arr) {
+    /*your code here*/
+    // console.log(arr.length);
+
+    if (arr.length === 31) {
+        return true;
+    } else return false;
 }
+
+// console.log(is31Flavors(originalFlavors));
+
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -81,9 +94,14 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-   /*your code here*/
+function addFlavor(arr, newFlavor) {
+    arr.unshift(newFlavor);
+    return arr;
 }
+
+addFlavor(originalFlavors, "Strawberry Sherbert");
+
+// console.log(addFlavor(originalFlavors, "Strawberry Sherbert"));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -97,9 +115,13 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(arr) {
+    /*your code here*/
+    arr.pop();
+    return arr;
 }
+
+console.log(removeLastFlavor(originalFlavors));
 
 
 
@@ -114,9 +136,12 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
+function getFlavorByIndex(arr, indexNum) {
     /*your code here*/
+    return arr[indexNum];
 }
+
+console.log(getFlavorByIndex(originalFlavors, 2));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -133,10 +158,15 @@ Use the removeFlavorByName function below to do the following:
 
     HINT: You can use .splice() for this
 */
+// console.log('hello')
 
-function removeFlavorByName(/*your code here*/){
+function removeFlavorByName(arr, flavor) {
     /*your code here*/
+    arr.splice(arr.indexOf(flavor), 1);
+    return arr;
 }
+
+console.log(removeFlavorByName(originalFlavors, "Rocky Road"));
 
 
 
@@ -160,12 +190,20 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
+function filterByWord(arr, string) {
     /*your code here*/
-}
+    let results = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(string)) {
+            results.push(arr[i]);
+        }
+    }
+    return results;
+};
+console.log(filterByWord(originalFlavors, "Chocolate"));
 
 
-/* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
+/* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/
 
 /* STRETCH 1: Write a function that returns the average number of words in an array. You should be able to use this function for any array, but can test with originalFlavors.
 
@@ -177,7 +215,7 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
+function getAverageWordLength( /*code here*/ ) {
     /*code here*/
 }
 
@@ -195,7 +233,7 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
+function getRandomFlavors( /*code here*/ ) {
     /*code here*/
 }
 
@@ -224,7 +262,7 @@ const newFlavors = [
     "Daiquiri Ice",
     "Rainbow Sherbet",
     "Rainbow Swirl"
-] 
+]
 
 const seasonalFlavors = [
     "America's Birthday Cake",
@@ -283,11 +321,11 @@ const regionalFlavors = [
 
 
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
-function foo(){
+function foo() {
     return 'bar';
 }
 
-export default{
+export default {
     foo,
     is31Flavors,
     addFlavor,
@@ -299,4 +337,3 @@ export default{
     getAverageWordLength,
     getRandomFlavors
 }
-
